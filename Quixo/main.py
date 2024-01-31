@@ -32,7 +32,7 @@ class MyPlayer(Player):
 
         if self.learning:
 
-            self.mon_caca(None, game)
+            self.New_qplayer(None, game)
 
             if np.random.rand() < self.exploration_prob:
                 valid_moves = self.get_valid_moves(game)
@@ -70,7 +70,7 @@ class MyPlayer(Player):
             from_pos, move = self.decode_action(best_action)
             return from_pos, move
 
-    def mon_caca(self, booli=None, game: 'Game' = None) -> None:
+    def New_qplayer(self, booli=None, game: 'Game' = None) -> None:
         if booli is None:
             if self.currentState is None:
                 self.currentState = self.get_state_representation(game)
@@ -245,9 +245,9 @@ if __name__ == '__main__':
             a = Game()
             winnerre = a.play(player, RandomPlayer())
             if winnerre == 0:
-                player.mon_caca(True)
+                player.New_qplayer(True)
             else:
-                player.mon_caca(False)
+                player.New_qplayer(False)
 
 
     # training:
